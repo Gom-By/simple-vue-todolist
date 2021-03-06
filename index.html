@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Todo in vue.js</title>
+    <script src="src/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <h1>Todo list in vue js</h1>
+
+            <div v-if="!isEditing">
+                <input type="text" v-model="todo">
+                <input type="submit" value="Add" @click="storeTodo">    
+            </div>
+            <div v-else>
+                <input type="text" v-model="todo">
+                <input type="submit" value="Update" @click="updateTodo">    
+            </div>
+
+            <ul>
+                <li v-for="(todo, index) in todos"> 
+                    {{ todo }}
+                    <button @click="editTodo(index, todo)">Edit</button>
+                    <button @click="removeTodo(index)">Delete</button>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <script src="src/script.js"></script>
+</body>
+</html>
